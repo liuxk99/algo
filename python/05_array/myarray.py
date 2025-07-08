@@ -51,7 +51,6 @@ class MyArray:
         for item in self:
             print(item)
 
-
 def test_myarray():
     array = MyArray(5)
     array.insert(0, 3)
@@ -59,10 +58,11 @@ def test_myarray():
     array.insert(1, 5)
     array.insert(3, 9)
     array.insert(3, 10)
-    assert array.insert(0, 100) is False
-    assert len(array) == 5
-    assert array.find(1) == 5
-    assert array.delete(4) is True
+    # 4,5,3,10,9
+    assert array.insert(0, 100) is False # overflow the capacity
+    assert len(array) == 5 # size of array is 5
+    assert array.find(1) == 5 # the second(index=1) element is 5
+    assert array.delete(4) is True # delete the last element
     array.print_all()
 
 
